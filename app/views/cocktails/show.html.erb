@@ -1,0 +1,21 @@
+  <h1><%= @cocktail.name %></h1>
+  <% @cocktail.doses.each do |dose| %>
+  <ul>
+    <li> Cocktail <%= dose.description %>
+    <!-- dose c est le modele et description c est une methode active record -->
+   | <%= dose.ingredient.name %>
+    <%= link_to "Delete", dose_path(dose.id), method: :delete %></li>
+  </ul>
+<% end %>
+
+<!-- pour creer une form de creation de dose: coquille vide de dose (dose.new) et le cocktail
+ -->
+<%= simple_form_for ([@cocktail, @dose]) do |f| %>
+  <%= f.association :ingredient, collection: Ingredient.all %>
+  <!-- association sait que ingredient est une cle etrangere et sera associe a la dose-->
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<%= link_to "Retour à la page d'accueil", cocktails_path  %>
