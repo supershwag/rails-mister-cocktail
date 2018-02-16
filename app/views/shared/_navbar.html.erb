@@ -1,7 +1,7 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
-    <img src="images/bm.png" alt="logo">
+  <%= image_tag "bm.jpg" %>
   </a>
 
   <!-- Right Navigation -->
@@ -14,8 +14,8 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="assets/images/adele.jpeg" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <%= image_tag "adele.jpeg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data: {toggle: "dropdown"} %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
           <li><a href="#">Log Out</a></li>
