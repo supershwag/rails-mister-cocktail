@@ -8,7 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import "bootstrap";
-import (initUpdateNavbarOnScroll) from "../components/navbar"
+import { initUpdateNavbarOnScroll } from "../components/navbar"
 initUpdateNavbarOnScroll();
-import (loadDynamicBannerText) from "../components/banner"
+import { loadDynamicBannerText } from "../components/banner"
 loadDynamicBannerText();
