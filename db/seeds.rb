@@ -10,6 +10,7 @@
 
 require "open-uri"
 require "json"
+Dose.destroy_all
 Ingredient.destroy_all
 Cocktail.destroy_all
 url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
@@ -23,5 +24,19 @@ ingredient["drinks"].each do |ingredient_hash|
   new_ingredient.save
 end
 
-cocktail_1 = Cocktail.create(name: "Moscow Mule")
-dose_1 = Dose.create(description: "blabla", cocktail: cocktail_1, ingredient: Ingredient.first)
+
+
+url = "http://res.cloudinary.com/thanhan/image/upload/v1518797897/2015-04-28-PHOTO-00000195.jpg"
+cocktail = Cocktail.new(name: "Vodka Mate")
+cocktail.remote_photo_url = url
+cocktail.save
+
+url_1 = "http://res.cloudinary.com/thanhan/image/upload/v1518797816/DSC00764.jpg"
+cocktail_1 = Cocktail.new(name: "Celine Dion")
+cocktail_1.remote_photo_url = url_1
+cocktail_1.save
+
+url_2 = "http://res.cloudinary.com/thanhan/image/upload/v1518797801/DSC00232.jpg"
+cocktail_2 = Cocktail.new(name: "London Mule")
+cocktail_2.remote_photo_url = url_2
+cocktail_2.save

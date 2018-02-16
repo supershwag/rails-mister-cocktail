@@ -3,18 +3,22 @@
   <p>
     <span id="banner-typed-text"></span>
   </p>
+  <%= link_to "Add some intensity", new_cocktail_path  %>
 </div>
 
 <div class="container">
   <div class="row">
       <% @cocktails.each do |cocktail| %>
     <div class="col-xs-12 col-sm-4">
-        <div class="card">
+        <% if cocktail.photo.file.nil?%>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1513416543495-10c173ed9908?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=aff0b38f8272e060f9c4430aa661e24f&auto=format&fit=crop&w=1050&q=80');"></div>
+        <% else %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo %>');">
+            <%= link_to "", cocktail_path(cocktail.id), class: "card-link" %>
+        <% end %>
           <div class="card-description">
-            <%= image_tag "sunrise.jpg", width:"265" %>
-            <h2><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2>
+            <h2><%= cocktail.name %></h2>
           </div>
-          <a class="card-link" href="#" ></a>
         </div>
     </div>
     <% end %>
@@ -22,7 +26,6 @@
 </div>
 
 
-  <%= link_to "Ajouter un cocktail", new_cocktail_path  %>
 
 
 

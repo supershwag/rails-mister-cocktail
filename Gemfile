@@ -7,6 +7,10 @@ end
 
 # cloudinary
 gem 'figaro'
+gem 'cloudinary'
+
+# carrierwave
+gem 'carrierwave', '~> 1.2'
 
 # Asset pipeline
 gem "sprockets-rails"
